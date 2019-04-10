@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "apollo-boost": "^0.3.1",
+    "apollo-client": "^2.5.1",
+    "cross-fetch": "^3.0.2",
+    "graphql": "^14.2.1",
+    "next": "^8.0.4",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.4",
+    "react-dom": "^16.8.6"
+  },
+  "scripts": {
+    "dev": "node dev-server.js",
+    "build": "next build",
+    "start": "next start",
+    "now-build": "next build && next export -o dist"
+  },
+  "proxy": "http://localhost:4000",
+  "devDependencies": {
+    "express": "^4.16.4",
+    "http-proxy-middleware": "^0.19.1"
+  }
+}
