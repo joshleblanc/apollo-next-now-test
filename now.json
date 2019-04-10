@@ -3,7 +3,7 @@
     "version": 2,
     "builds": [
         { "src": "server/index.js", "use": "@now/node-server" },
-        { "src": "next-client/package.json", "use": "@now/static-build", "config": { "distDir": "dist" }}
+        { "src": "next-client/next.config.js", "use": "@now/next" }
     ],
     "routes": [
         { "src": "/graphql", "dest": "server/index.js" },
