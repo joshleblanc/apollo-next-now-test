@@ -1,6 +1,6 @@
 import React from 'react';
 import { ApolloProvider, Query } from 'react-apollo';
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 import ApolloClient from "apollo-client";
 import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -23,7 +23,7 @@ const client = new ApolloClient({
 
 export default () => (
     <ApolloProvider client={client}>
-    <Query query={HELLO_QUERY}>
+      <Query query={HELLO_QUERY}>
         {
           ({ data }) => (
             <div>{data.hello}</div>
