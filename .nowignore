@@ -1,3 +1,3 @@
 server/node_modules
-next-client/node_modules
-next-client/dev-server.js
+client/node_modules
+client/dev-server.js
