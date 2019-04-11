@@ -1,12 +1,24 @@
 {
-    "name": "now-test",
-    "version": 2,
-    "builds": [
-        { "src": "server/index.js", "use": "@now/node-server" },
-        { "src": "client/next.config.js", "use": "@now/next" }
-    ],
-    "routes": [
-        { "src": "/graphql", "dest": "server/index.js" },
-        { "src": "/(.*)", "dest": "client/$1"}
-    ]
+  "name": "now-test",
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/index.js",
+      "use": "@now/node-server"
+    },
+    {
+      "src": "client/next.config.js",
+      "use": "@now/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/graphql",
+      "dest": "server/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "client/$1"
+    }
+  ]
 }

@@ -6,8 +6,8 @@ import fetch from 'node-fetch'
 
 const client = new ApolloClient({
   link: createHttpLink({
-      uri: "/graphql",
-      fetch: fetch
+    uri: "/graphql",
+    fetch: fetch
   }),
   cache: new InMemoryCache()
 });

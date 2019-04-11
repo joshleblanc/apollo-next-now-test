@@ -1,9 +1,9 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import { useSnackbar } from 'notistack';
+import {useSnackbar} from 'notistack';
 import StyledPaper from '../components/StyledPaper';
-import { useQuery } from 'react-apollo-hooks';
-import { LinearProgress, Button } from '@material-ui/core';
+import {useQuery} from 'react-apollo-hooks';
+import {LinearProgress, Button} from '@material-ui/core';
 
 const HELLO_QUERY = gql`
   {
@@ -12,20 +12,20 @@ const HELLO_QUERY = gql`
 `
 
 export default () => {
-  const { data, error, loading } = useQuery(HELLO_QUERY);
-  const { enqueueSnackbar } = useSnackbar();
+  const {data, error, loading} = useQuery(HELLO_QUERY);
+  const {enqueueSnackbar} = useSnackbar();
   const handleClick = React.useCallback(() => {
-    enqueueSnackbar("A notification!", { variant: "success" })
+    enqueueSnackbar("A notification!", {variant: "success"})
   });
 
-  if(loading) {
-    return <LinearProgress />;
+  if (loading) {
+    return <LinearProgress/>;
   }
-  if(error) {
+  if (error) {
     return "This shouldn't actually happen";
   }
 
-  return(
+  return (
     <React.Fragment>
       <StyledPaper>
         {data.hello}
