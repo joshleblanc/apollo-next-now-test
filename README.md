@@ -1,9 +1,10 @@
-##Setup##
-#Server#
+# Setup #
+
+## Server ##
 `cd server && yarn install && npm start`
 
-#Client#
+## Client ##
 `cd client && yarn install && npm run dev`
 
-##Deploy##
+# Deploy #
 `now`
