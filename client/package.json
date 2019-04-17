@@ -4,10 +4,12 @@
     "@material-ui/styles": "^4.0.0-alpha.7",
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
+    "apollo-link-context": "^1.0.17",
     "apollo-link-http": "^1.5.14",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
     "next": "^8.0.4",
+    "next-cookies": "^1.1.2",
     "node-fetch": "^2.3.0",
     "notistack": "^0.6.1",
     "react": "^16.8.6",
@@ -16,7 +18,7 @@
     "react-dom": "^16.8.6"
   },
   "scripts": {
-    "dev": "node dev-server.js",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "now-build": "next build"
