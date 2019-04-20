@@ -32,6 +32,5 @@ export default () => {
         <Button onClick={handleClick}>Click me for a notification!</Button>
       </StyledPaper>
     </React.Fragment>
-
   )
 }
