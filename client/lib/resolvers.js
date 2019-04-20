@@ -1,11 +1,12 @@
+import Cookies from 'js-cookie';
 export default {
     Mutation: {
-        setLoggedIn: async (_, { val }, {cache}) => {
-            cache.writeData({
-                data: {
-                    isLoggedIn: val
-                }
-            })
+        setToken: async (_, { token }, { cache }) => {
+            cache.writeData({ data: { token } })
+        },
+        logout: async (_, vars, { cache }) => {
+            cache.writeData({ data: { token: null }});
+            Cookies.remove('token');
         }
     }
 }

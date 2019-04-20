@@ -2,20 +2,20 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { SnackbarProvider } from "notistack";
 import { CssBaseline } from "@material-ui/core";
-import ProviderOfTheme from '../providers/ProviderOfTheme';
 import Navbar from '../components/Navbar';
-import cookies from "next-cookies";
+import nextCookie from "next-cookies";
 import Head from 'next/head'
 import initApollo from '../lib/initApolloClient';
-import { ApolloProvider, getMarkupFromTree  } from 'react-apollo-hooks';
+import { ApolloProvider, getMarkupFromTree } from 'react-apollo-hooks';
 import { renderToString } from 'react-dom/server';
+import theme from '../lib/theme';
+import { ThemeProvider } from "@material-ui/styles";
 
 export default class extends App {
 
   constructor(props) {
     super(props);
-    console.log(props);
-    this.apolloClient = initApollo(props.cookie, props.apolloState);
+    this.apolloClient = initApollo(props.apolloState);
   }
 
   componentDidMount() {
@@ -27,24 +27,24 @@ export default class extends App {
   }
 
   static async getInitialProps({ Component, ...pageProps }) {
-    const cookie = cookies(pageProps.ctx);
-    const { token, id } = cookie;
-    const apollo = initApollo(cookie)
+    const { token } = nextCookie(pageProps.ctx);
+
+    const apollo = initApollo();
     apollo.cache.writeData({
       data: {
-        isLoggedIn: !!(token && id)
+        token: token || null,
       }
     })
-
+    
     // Run all GraphQL queries in the component tree
     // and extract the resulting data
     if (!process.browser) {
       try {
         // Run all GraphQL queries
-        await getMarkupFromTree ({
+        await getMarkupFromTree({
           renderFunction: renderToString,
           tree: <Container>
-            <ProviderOfTheme>
+            <ThemeProvider theme={theme}>
               <SnackbarProvider>
                 <ApolloProvider client={apollo}>
                   <CssBaseline />
@@ -52,7 +52,7 @@ export default class extends App {
                   <Component {...pageProps} />
                 </ApolloProvider>
               </SnackbarProvider>
-            </ProviderOfTheme>
+            </ThemeProvider>
           </Container>
         })
       } catch (error) {
@@ -67,9 +67,7 @@ export default class extends App {
       Head.rewind()
     }
     const apolloState = apollo.cache.extract()
-
     return {
-      cookie: cookie,
       apolloState: apolloState
     }
   }
@@ -78,7 +76,7 @@ export default class extends App {
     const { Component, ...pageProps } = this.props;
     return (
       <Container>
-        <ProviderOfTheme>
+        <ThemeProvider theme={theme}>
           <SnackbarProvider>
             <ApolloProvider client={this.apolloClient}>
               <CssBaseline />
@@ -86,7 +84,7 @@ export default class extends App {
               <Component {...pageProps} />
             </ApolloProvider>
           </SnackbarProvider>
-        </ProviderOfTheme>
+        </ThemeProvider>
       </Container>
     )
   }

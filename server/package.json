@@ -4,7 +4,11 @@
   "private": true,
   "dependencies": {
     "apollo-server": "^2.4.8",
-    "graphql": "^14.2.1"
+    "bcrypt": "^3.0.6",
+    "dotenv": "^7.0.0",
+    "graphql": "^14.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.2"
   },
   "scripts": {
     "start": "nodemon index.js"
