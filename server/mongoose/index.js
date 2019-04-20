@@ -5,5 +5,5 @@ if(process.env.MONGO_URL) {
   connectionString = process.env.MONGO_URL;
 }
 
-console.log(connectionString);
+console.log("Conection string: ", connectionString);
 mongoose.connect(connectionString, {useNewUrlParser: true});

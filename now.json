@@ -1,24 +1,28 @@
 {
-  "name": "now-test",
-  "version": 2,
-  "builds": [
-    {
-      "src": "server/index.js",
-      "use": "@now/node-server"
-    },
-    {
-      "src": "client/next.config.js",
-      "use": "@now/next"
+    "name": "now-test",
+    "version": 2,
+    "builds": [
+      {
+        "src": "server/index.js",
+        "use": "@now/node-server"
+      },
+      {
+        "src": "client/next.config.js",
+        "use": "@now/next"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/graphql",
+        "dest": "server/index.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "client/$1"
+      }
+    ],
+    "env": {
+        "MONGO_URL": "@apollo-test-mongo-url",
+        "JTW_SECRET": "@jwt-secret"
     }
-  ],
-  "routes": [
-    {
-      "src": "/graphql",
-      "dest": "server/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "client/$1"
-    }
-  ]
-}
+  }

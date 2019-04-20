@@ -16,7 +16,7 @@ const GET_TOKEN = gql`
 `;
 
 let client = null;
-function create(initialState) {
+function create(initialState, host) {
     const cache = new InMemoryCache().restore(initialState || {});
     const authLink = setContext((_, {headers}) => {
         const { token } = cache.readQuery({ query: GET_TOKEN });
@@ -41,8 +41,9 @@ function create(initialState) {
             Router.push('/');
         }
     })
+
     const link = createHttpLink({
-        uri: "http://localhost:4000/graphql",
+        uri: host,
         fetch: fetch,
         credentials: 'same-origin'
     })
@@ -55,13 +56,13 @@ function create(initialState) {
     });
 }
 
-export default function initApolloClient(initialState) {
+export default function initApolloClient(initialState, host) {
     if (!process.browser) {
-        return create(initialState);
+        return create(initialState, host);
     }
 
     if (!client) {
-        client = create(initialState);
+        client = create(initialState, host);
     }
     return client;
 }

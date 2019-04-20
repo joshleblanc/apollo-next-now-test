@@ -1,3 +1,6 @@
 module.exports = {
-  target: 'serverless'
+  target: 'serverless',
+  env: {
+    nodeEnv: process.env.NODE_ENV
+  }
 }
