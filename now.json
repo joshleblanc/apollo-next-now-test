@@ -23,6 +23,6 @@
     ],
     "env": {
         "MONGO_URL": "@apollo-test-mongo-url",
-        "JTW_SECRET": "@jwt-secret"
+        "JWT_SECRET": "@jwt-secret"
     }
   }
