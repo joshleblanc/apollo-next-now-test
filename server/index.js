@@ -5,9 +5,14 @@ const resolvers = require('./resolvers');
 require('./mongoose');
 
 const context = async ({ req }) => {
-  return {
-    token: req.headers.authorization.split(' ')[1]
+  let token = '';
+  if(req.headers.authorization) {
+    token = req.headers.authrization.split(' ')[1];
   }
+  return {
+    token
+  }
+  
 }
 
 const server = new ApolloServer({
