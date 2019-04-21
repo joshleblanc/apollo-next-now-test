@@ -28,7 +28,7 @@ export default class extends App {
 
   static async getInitialProps({ Component, ...pageProps }) {
     let host;
-    if(process.env.nodeEnv === 'development') {
+    if(process.env.NODE_ENV === 'development') {
       host = "http://localhost:4000/graphql";
     } else {
       if(process.browser) {
