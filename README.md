@@ -7,6 +7,8 @@
 `cd client && yarn install && npm run dev`
 
 # Deploy #
+Setup your `now` secrets. The defaults are `@apollo-test-mongo-url` and `@jwt-secret`, these can be changed in `now.json`.
+
 From the root direction: `now`
 
 # What this includes #
