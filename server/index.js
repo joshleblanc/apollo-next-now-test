@@ -7,7 +7,7 @@ require('./mongoose');
 const context = async ({ req }) => {
   let token = '';
   if(req.headers.authorization) {
-    token = req.headers.authrization.split(' ')[1];
+    token = req.headers.authorization.split(' ')[1];
   }
   return {
     token
