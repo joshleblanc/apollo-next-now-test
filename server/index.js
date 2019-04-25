@@ -18,7 +18,10 @@ const context = async ({ req }) => {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context
+  context,
+  engine: {
+    apiKey: process.env.ENGINE_API_KEY
+  }
 });
 
 server.listen().then(({ url }) => {
