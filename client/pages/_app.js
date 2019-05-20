@@ -29,7 +29,7 @@ export default class extends App {
   static async getInitialProps({ Component, ...pageProps }) {
     let host;
     if(process.env.NODE_ENV === 'development') {
-      host = "http://localhost:4000/graphql";
+      host = "http://localhost:3000/api/graphql";
     } else {
       if(process.browser) {
         host = `https://${window.location.hostname}/graphql`;
