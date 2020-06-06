@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "apollo-server": "^2.4.8",
+    "apollo-server": "^2.14.2",
     "bcrypt": "^3.0.6",
     "dotenv": "^7.0.0",
     "graphql": "^14.2.1",
