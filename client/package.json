@@ -29,7 +29,7 @@
     "now-build": "next build"
   },
   "devDependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "http-proxy-middleware": "^0.19.1"
   }
 }
